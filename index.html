@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planos de Internet</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f8f9fc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        text-align: center;
+      }
+      h1 {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+      #busca {
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 300px;
+        outline: none;
+        transition: 0.2s;
+      }
+      #busca:focus {
+        border-color: #5e72e4;
+        box-shadow: 0 0 0 2px rgba(94, 114, 228, 0.2);
+      }
+      button {
+        margin-top: 15px;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        background-color: #5e72e4;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      button:hover {
+        background-color: #324cdd;
+      }
+      .resultado {
+        margin-top: 30px;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        text-align: left;
+      }
+      .resultado h2 {
+        margin-top: 0;
+        color: #5e72e4;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .plano {
+        margin-left: 10px;
+      }
+      img.icon {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Planos Atos Telecom</h1>
+
+    <input type="text" id="busca" placeholder="Ex: green, candeias, 55a" />
+    <br />
+    <button onclick="pesquisar()">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/64/64673.png"
+        alt="Buscar"
+        class="icon"
+      />
+      Buscar
+    </button>
+
+    <div id="resultado" class="resultado"></div>
+
+    <script>
+      const dados = {
+        "Candeias Área Urbana": {
+          imagem:
+            "https://i.ibb.co/WvHX3PTp/C-pia-de-Post-Instagram-Canva-Gr-tis-1-1.png",
+          instalacao:
+            "<strong>Com fidelidade:</strong> grátis (mediante consulta de CPF).<br><strong>Sem fidelidade:</strong> R$ 200,00 no ato da instalação.",
+          planos: {
+            "200MB": "109,99",
+            "400MB": "134,99",
+            "600MB": "149,99",
+            "800MB": "169,99",
+            "1000MB": "219,99",
+          },
+          obs: "<strong>Com fidelidade:</strong> contrato de 12 meses e instalação gratuita após aprovação na consulta de CPF.<br><strong>Sem fidelidade:</strong> instalação custa R$ 200,00 e o cliente pode cancelar a qualquer momento.",
+        },
+        "Setor chacareiro Cemitério/Candeias": {
+          instalacao: "350,00 à vista/ R$450,00 Parcelado",
+          planos: { "100MB": "149,99", "200MB": "169,99", "300MB": "184,99" },
+          obs: "R$450,00 Instalação parcelado com entrada de R$200,00",
+        },
+        "Green-PK": {
+          instalacao: "R$200,00",
+          planos: {
+            "200MB": "109,99",
+            "400MB": "134,99",
+            "600MB": "149,99",
+            "800MB": "169,99",
+            "1000MB": "219,99",
+          },
+          obs: "Com fidelidade ou sem fidelidade é R$200,00",
+        },
+        Pamus: {
+          instalacao: "R$350,00 à vista / R$700,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$300,00 de entrada",
+        },
+        "55A": {
+          instalacao: "R$350,00 à vista / R$700,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$300,00 de entrada",
+        },
+        "55B": {
+          instalacao: "R$350,00 à vista / R$700,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$300,00 de entrada",
+        },
+        "BR 364-Cuiba": {
+          instalacao: "R$700,00 à vista / R$1.100,00 parcelado",
+          planos: { "100MB": "169,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$500,00 de entrada",
+        },
+        "BR 364-PVH": {
+          instalacao: "R$250,00 à vista",
+          planos: { "100MB": "109,99", "200MB": "129,99", "300MB": "139,99" },
+          obs: "",
+        },
+        "Rancho Alegre": {
+          instalacao: "R$600,00 à vista / R$900,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$400,00 de entrada",
+        },
+        "BR 364 (Cuiabá,Após o Silos)": {
+          instalacao: "R$800,00 à vista / R$1.300,00 parcelado",
+          planos: { "100MB": "169,99", "200MB": "199,99", "300MB": "249,99" },
+          obs: "Instalação parcelada tem que dar R$500,00 de entrada",
+        },
+        "Corpo Dourado": {
+          instalacao: "R$350,00 à vista / R$450,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "169,99", "300MB": "184,99" },
+          obs: "Instalação parcelada tem que dar R$200,00 de entrada",
+        },
+        "Santa Luzia": {
+          instalacao: "250,00 à vista",
+          planos: { "100MB": "149,99", "200MB": "169,99", "300MB": "184,99" },
+          obs: "",
+        },
+        "Setor Industrial PVH": {
+          instalacao: "250,00 à vista",
+          planos: { "100MB": "149,99", "200MB": "169,99", "300MB": "184,99" },
+          obs: "",
+        },
+        "Bacia Leiteira Bom Jesus": {
+          instalacao: "R$600,00 à vista / R$900,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "179,99", "300MB": "229,99" },
+          obs: "Instalação parcelada tem que dar R$400,00 de entrada",
+        },
+        "Bacia Leiteira Ramal do Boto": {
+          instalacao: "R$600,00 à vista / R$900,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "179,99", "300MB": "229,99" },
+          obs: "Instalação parcelada tem que dar R$400,00 de entrada",
+        },
+        "Bairro 13/ Castanheiras": {
+          instalacao: "R$200,00 à vista",
+          planos: { "100MB": "99,99", "200MB": "119,99", "300MB": "129,99" },
+          obs: "",
+        },
+        Piquiá: {
+          instalacao: "600,00 à vista / 900,00 parcelado",
+          planos: { "100MB": "149,99", "200MB": "179,99", "300MB": "229,99" },
+          obs: "Instalação parcelada tem que dar R$400,00 de entrada",
+        },
+        "Bairro Novo de Candeias": {
+          instalacao: "R$200,00 à vista",
+          planos: {
+            "100MB": "99,99",
+            "200MB": "129,99",
+            "300MB": "139,99",
+            "400MB": "159,99",
+          },
+          obs: "",
+        },
+        "Linha do Caju": {
+          instalacao: "R$350,00 à vista/ parcelado R$600,00",
+          planos: { "100MB": "150,00", "200MB": "170,00", "300MB": "185,00" },
+          obs: "Instalação parcelada tem que dar R$300,00 de entrada",
+        },
+      };
+
+      const apelidos = {
+        green: "Green-PK",
+        Candeias: "Candeias Área Urbana",
+        "green park": "Green-PK",
+        "green-pk": "Green-PK",
+        candeias: "Candeias Área Urbana",
+        cemiterio: "Setor chacareiro Cemitério/Candeias",
+        "setor chacareiro": "Setor chacareiro Cemitério/Candeias",
+        industrial: "Setor Industrial PVH",
+        corpo: "Corpo Dourado",
+        "corpo dourado": "Corpo Dourado",
+        br364: "BR 364 (Cuiabá,Após o Silos)",
+        caju: "Linha do Caju",
+        rancho: "Rancho Alegre",
+        "santa luzia": "Santa Luzia",
+        piquia: "Piquiá",
+        bacia: "Bacia Leiteira Ramal do Boto",
+        boto: "Bacia Leiteira Ramal do Boto",
+        "bom jesus": "Bacia Leiteira Bom Jesus",
+        br: "BR 364 (Cuiabá,Após o Silos)",
+        "rancho alegre": "Rancho Alegre",
+        "rio preto": "Bairro Novo de Candeias",
+        dallas: "Bairro Novo de Candeias",
+        loteamento: "Bairro Novo de Candeias",
+        Loteamento: "Bairro Novo de Candeias",
+        Caju: "Linha do Caju",
+        "ramal do boto": "Bacia Leiteira Ramal do Boto",
+        "linha do caju": "Linha do Caju",
+      };
+
+      function pesquisar() {
+        const termo = document
+          .getElementById("busca")
+          .value.trim()
+          .toLowerCase();
+        let chave = null;
+
+        if (apelidos[termo]) {
+          chave = apelidos[termo];
+        } else {
+          for (const nome in dados) {
+            if (nome.toLowerCase().includes(termo)) {
+              chave = nome;
+              break;
+            }
+          }
+        }
+
+        const res = document.getElementById("resultado");
+        if (!chave) {
+          res.innerHTML = "<strong>Nenhuma localidade encontrada.</strong>";
+          return;
+        }
+
+        const info = dados[chave];
+        let html = `<h2>${chave}</h2>`;
+        if (info.imagem) {
+          html += `<img src="${info.imagem}" alt="${chave}" style="max-width: 100%; border-radius: 10px; margin-bottom: 15px;">`;
+        }
+        html += `<p><strong>Instalação:</strong><br>${info.instalacao}</p>`;
+        html += `<p><strong>Planos:</strong></p><ul>`;
+        for (const plano in info.planos) {
+          html += `<li class="plano">${plano}: R$ ${info.planos[plano]}</li>`;
+        }
+        html += `</ul>`;
+        html += `<p><strong>Observações:</strong><br>${
+          info.obs || "Nenhuma"
+        }</p>`;
+
+        res.innerHTML = html;
+      }
+    </script>
+  </body>
+</html>
