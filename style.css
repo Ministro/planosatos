@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 40px 20px;
+  background: #f8f9fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+h1 {
+  color: #333;
+  font-weight: 600;
+  margin: 5px 0 10px 0;
+  font-size: 24px;
+}
+#busca {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+  transition: 0.2s;
+}
+#busca:focus {
+  border-color: #5e72e4;
+  box-shadow: 0 0 0 2px rgba(94, 114, 228, 0.2);
+}
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #5e72e4;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+button:hover {
+  background-color: #324cdd;
+}
+.resultado {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+}
+.resultado h2 {
+  margin-top: 0;
+  color: #5e72e4;
+}
+ul {
+  padding-left: 20px;
+}
+.plano {
+  margin-left: 10px;
+}
+img.icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+#btnImprimir {
+  display: none;
+  margin-top: 15px;
+  background-color: #28a745;
+}
+#btnImprimir:hover {
+  background-color: #1e7e34;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  img[alt="Logo Atos Telecom"] {
+    width: 90px;
+  }
+  #busca {
+    font-size: 14px;
+  }
+  button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
+  }
+  .resultado {
+    padding: 15px;
+    font-size: 14px;
+  }
+  .resultado h2 {
+    font-size: 18px;
+  }
+}
