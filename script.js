@@ -55,7 +55,7 @@ const dados = {
   "BR 364-KM50 (Cinquentinha)": {
     instalacao: "R$700,00 à vista / R$1.100,00 parcelado",
     planos: { "100MB": "169,99", "200MB": "199,99", "300MB": "249,99" },
-    obs: "Instalação parcelada tem que dar R$500,00 de entrada",
+    obs: "Instalação parcelada tem que dar R$600,00 de entrada",
   },
   "BR 364-PVH": {
     instalacao: "R$250,00 à vista",
@@ -70,7 +70,7 @@ const dados = {
   "BR 364 (Cuiabá,Após o Silos)": {
     instalacao: "R$700,00 à vista / R$1.100,00 parcelado",
     planos: { "100MB": "169,99", "200MB": "199,99", "300MB": "249,99" },
-    obs: "Instalação parcelada tem que dar R$500,00 de entrada",
+    obs: "Instalação parcelada tem que dar R$600,00 de entrada",
   },
   "Corpo Dourado": {
     instalacao: "R$350,00 à vista / R$450,00 parcelado",
