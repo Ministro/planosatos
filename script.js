@@ -211,7 +211,7 @@ function imprimir() {
     alert("Nenhum resultado para imprimir.");
     return;
   }
-  const logoUrl = "https://i.ibb.co/8LNhX3d7/logo-2-removebg-preview.png"; // logo
+  const logoUrl = "https://i.supaimg.com/12820c3b-da0c-4cbf-86c0-12ae6f6217c6.png"; // logo
   const janela = window.open("", "_blank");
   janela.document.write(`<html><head><title>Impressão</title><style>
       body{font-family:Poppins,sans-serif;padding:20px;}
