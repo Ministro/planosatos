@@ -9,7 +9,7 @@ const dados = {
       "800MB": "169,99",
       "1000MB": "199,99",
     },
-    obs: "<strong>Com fidelidade:</strong> A instalação é gratis com Contrato de 12 meses, se o CPF aprovar.<br><strong>Sem fidelidade:</strong> R$ 200,00 a vista, e pode cancelar a qualquer momento.",
+    obs: "<strong>Com fidelidade (12 meses):</strong> Instalação gratuita com CPF aprovado. Caso o CPF não seja aprovado, será cobrada uma taxa de R$ 100,00, mantendo o contrato de 12 meses.<br><strong>Sem fidelidade:</strong> Instalação R$ 200,00 à vista, com cancelamento a qualquer momento.",
   },
   "Setor chacareiro depois do Cemitério/Candeias": {
     instalacao: "350,00 à vista/ R$450,00 Parcelado",
