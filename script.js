@@ -89,17 +89,17 @@ const dados = {
   },
   "Bacia Leiteira Bom Jesus": {
     instalacao: "R$600,00 à vista / R$900,00 parcelado",
-    planos: { "200MB": "169,99", "300MB": "199,99", "400MB": "249,99" },
+    planos: { "200MB": "149,99", "300MB": "199,99", "400MB": "249,99" },
     obs: "Instalação parcelada tem que dar R$400,00 de entrada",
   },
   "Bacia Leiteira Ramal do Boto": {
     instalacao: "R$600,00 à vista / R$900,00 parcelado",
-    planos: { "200MB": "169,99", "300MB": "199,99", "400MB": "249,99" },
+    planos: { "200MB": "149,99", "300MB": "199,99", "400MB": "249,99" },
     obs: "Instalação parcelada tem que dar R$400,00 de entrada",
   },
   "Bacia Leiteira Ramal da Fortuna": {
     instalacao: "R$600,00 à vista / R$900,00 parcelado",
-    planos: { "200MB": "169,99", "300MB": "199,99", "400MB": "249,99" },
+    planos: { "200MB": "149,99", "300MB": "199,99", "400MB": "249,99" },
     obs: "Instalação parcelada tem que dar R$400,00 de entrada",
   },
   "Bairro 13/ Castanheiras": {
@@ -109,7 +109,7 @@ const dados = {
   },
   Piquiá: {
     instalacao: "600,00 à vista / 900,00 parcelado",
-    planos: { "200MB": "169,99", "300MB": "199,99", "400MB": "249,99" },
+    planos: { "200MB": "149,99", "300MB": "199,99", "400MB": "249,99" },
     obs: "Instalação parcelada tem que dar R$400,00 de entrada",
   },
   "Bairro Novo de Candeias": {
