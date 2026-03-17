@@ -84,7 +84,7 @@ const dados = {
   },
   "Setor Industrial PVH": {
     instalacao: "250,00 à vista",
-    planos: { "200MB": "149,99", "300MB": "169,99", "400MB": "249,99" },
+    planos: { "200MB": "129,99", "400MB": "149,99", "600MB": "169,99", "800MB": "199,99" },
     obs: "",
   },
   "Bacia Leiteira Bom Jesus": {
