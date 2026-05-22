@@ -1,7 +1,7 @@
 const dados = {
   "Candeias Área Urbana": {
     instalacao:
-      "<strong>Com fidelidade:</strong> Instalação Grátis (se o CPF aprovar).<br><strong>Sem fidelidade:</strong> R$ 200,00 no ato da instalação.",
+      "<strong>Com fidelidade:</strong> Instalação R$100,00.<br><strong>Sem fidelidade:</strong> R$ 200,00 no Ato da instalação.",
     planos: {
       "300MB": "109,99",
       "500MB": "134,99",
@@ -9,7 +9,7 @@ const dados = {
       "800MB": "169,99",
       "1000MB": "199,99",
     },
-    obs: "<strong>Com fidelidade (12 meses):</strong> Instalação gratuita com CPF aprovado. Caso o CPF não seja aprovado, será cobrada uma taxa de R$ 100,00, mantendo o contrato de 12 meses.<br><strong>Sem fidelidade:</strong> Instalação R$ 200,00 à vista, com cancelamento a qualquer momento.",
+    obs: "<strong>Com fidelidade (12 meses):</strong> Taxa de instalação de R$ 100,00, com permanência mínima de 12 meses.<br><strong>Sem fidelidade:</strong> Taxa de instalação de R$ 200,00 à vista, com possibilidade de cancelamento a qualquer momento.",
   },
   "Setor chacareiro depois do Cemitério/Candeias": {
     instalacao: "350,00 à vista/ R$450,00 Parcelado",
