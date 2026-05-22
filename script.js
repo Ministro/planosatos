@@ -9,7 +9,7 @@ const dados = {
       "800MB": "169,99",
       "1000MB": "199,99",
     },
-    obs: "<strong>Com fidelidade (12 meses):</strong> Taxa de instalação de R$ 100,00a vista, com permanência mínima de 12 meses.<br><strong>Sem fidelidade:</strong> Taxa de instalação de R$ 200,00 à vista, com possibilidade de cancelamento a qualquer momento.",
+    obs: "<strong>Com fidelidade (12 meses):</strong> Taxa de instalação de R$ 100,00 a vista, com permanência mínima de 12 meses.<br><strong>Sem fidelidade:</strong> Taxa de instalação de R$ 200,00 à vista, com possibilidade de cancelamento a qualquer momento.",
   },
   "Setor chacareiro depois do Cemitério/Candeias": {
     instalacao: "350,00 à vista/ R$450,00 Parcelado",
