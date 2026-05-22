@@ -1,7 +1,7 @@
 const dados = {
   "Candeias Área Urbana": {
     instalacao:
-      "<strong>Com fidelidade:</strong> Instalação R$100,00.<br><strong>Sem fidelidade:</strong> R$ 200,00 no Ato da instalação.",
+      "<strong>Com fidelidade:</strong> Instalação R$100,00 no Ato da Instalação.<br><strong>Sem fidelidade:</strong> R$ 200,00 no Ato da instalação.",
     planos: {
       "300MB": "109,99",
       "500MB": "134,99",
