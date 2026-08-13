@@ -212,8 +212,6 @@
     "green park": "Green-PK",
     "green-pk": "Green-PK",
     "candeias": "Candeias Área Urbana",
-    "cemiterio": "Setor chacareiro Cemitério/Candeias",
-    "setor chacareiro": "Setor chacareiro Cemitério/Candeias",
     "industrial": "Setor Industrial PVH",
     "setor": "Setor chacareiro antes do Cemitério/Candeias",
     "corpo": "Corpo Dourado",
@@ -237,6 +235,10 @@
     "Caju": "Linha do Caju",
     "cinquentinha": "BR 364-KM50 (Cinquentinha)",
     "ramal do boto": "Bacia Leiteira Ramal do Boto",
-    "linha do caju": "Linha do Caju"
+    "linha do caju": "Linha do Caju",
+    "antes do cemiterio": "Setor chacareiro antes do Cemitério/Candeias",
+    "depois do cemiterio": "Setor chacareiro depois do Cemitério/Candeias",
+    "antes cemitério": "Setor chacareiro antes do Cemitério/Candeias",
+    "depois cemitério": "Setor chacareiro depois do Cemitério/Candeias"
   }
 }

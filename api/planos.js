@@ -20,38 +20,34 @@ function formatarLocalidade(nome, info) {
   return {
     localidade: nome,
     instalacao: textoLimpo(info.instalacao),
-    planos: info.planos,
+    planos: info.planos || {},
     observacao: textoLimpo(info.obs),
   };
 }
 
 function encontrarLocalidades(termoOriginal) {
-  const termo = String(termoOriginal || "").trim();
+  const termo = normalizar(termoOriginal);
   if (!termo) return [];
 
-  const termoNormalizado = normalizar(termo);
-  const { dados, apelidos } = base;
+  const { dados = {}, apelidos = {} } = base;
+  const encontrados = new Set();
 
-  const apelidoDireto = Object.entries(apelidos).find(
-    ([apelido]) => normalizar(apelido) === termoNormalizado
-  );
+  // 1) Apelido exato.
+  Object.entries(apelidos).forEach(([apelido, nome]) => {
+    if (normalizar(apelido) === termo && dados[nome]) encontrados.add(nome);
+  });
 
-  if (apelidoDireto && dados[apelidoDireto[1]]) {
-    return [apelidoDireto[1]];
-  }
+  // 2) Nome da localidade contendo o termo.
+  Object.keys(dados).forEach((nome) => {
+    if (normalizar(nome).includes(termo)) encontrados.add(nome);
+  });
 
-  const porNome = Object.keys(dados).filter((nome) =>
-    normalizar(nome).includes(termoNormalizado)
-  );
+  // 3) Parte de um apelido.
+  Object.entries(apelidos).forEach(([apelido, nome]) => {
+    if (normalizar(apelido).includes(termo) && dados[nome]) encontrados.add(nome);
+  });
 
-  if (porNome.length) return porNome;
-
-  const porApelidoParcial = Object.entries(apelidos)
-    .filter(([apelido]) => normalizar(apelido).includes(termoNormalizado))
-    .map(([, nome]) => nome)
-    .filter((nome) => dados[nome]);
-
-  return [...new Set(porApelidoParcial)];
+  return [...encontrados];
 }
 
 module.exports = function handler(req, res) {
@@ -60,9 +56,7 @@ module.exports = function handler(req, res) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Cache-Control", "no-store, max-age=0");
 
-  if (req.method === "OPTIONS") {
-    return res.status(204).end();
-  }
+  if (req.method === "OPTIONS") return res.status(204).end();
 
   if (req.method !== "GET") {
     return res.status(405).json({
@@ -73,8 +67,8 @@ module.exports = function handler(req, res) {
 
   const termo = req.query.localidade || req.query.q || "";
 
-  if (!termo) {
-    const localidades = Object.entries(base.dados).map(([nome, info]) =>
+  if (!String(termo).trim()) {
+    const localidades = Object.entries(base.dados || {}).map(([nome, info]) =>
       formatarLocalidade(nome, info)
     );
 
@@ -100,10 +94,7 @@ module.exports = function handler(req, res) {
   );
 
   if (resultados.length === 1) {
-    return res.status(200).json({
-      ok: true,
-      ...resultados[0],
-    });
+    return res.status(200).json({ ok: true, ...resultados[0] });
   }
 
   return res.status(200).json({
